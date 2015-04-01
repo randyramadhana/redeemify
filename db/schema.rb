@@ -11,23 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150313052019) do
+ActiveRecord::Schema.define(:version => 20150328081744) do
+
+  create_table "codes", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "release"
+    t.string   "expiration"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+# Could not dump table "providers" because of following StandardError
+#   Unknown type 'thearray' for column 'codes'
 
   create_table "users", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "code"
+    t.string   "email"
   end
 
   create_table "vendors", :force => true do |t|
     t.string   "name"
     t.string   "uid"
     t.string   "provider"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "email"
   end
 
 end

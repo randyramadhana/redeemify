@@ -1,0 +1,27 @@
+<h1>Products</h1>
+
+
+<table id="products">
+  <tr>
+    <th>Product Name</th>
+    <th>Code</th>
+    <th>Release Date</th>
+    <th>Expiration date</th>
+  </tr>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.code %></td>
+    <td><%= product.release%></td>
+    <td><%= product.expiration %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<h2>Import Codes</h2>
+<%= form_tag import_codes_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
